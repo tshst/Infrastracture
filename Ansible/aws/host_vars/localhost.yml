@@ -1,0 +1,29 @@
+---
+aws:
+    common:
+        region: ap-northeast-1
+    vpc:
+        name: staging
+        cidr_block: 10.0.0.0/20
+        tags:
+            tag1: web
+            tag2: ap
+        subnet:
+            subnet1:
+                tags:
+                    Name: public
+                cidr: 10.0.0.1/24
+                zone: a
+            subnet2:
+                tags:
+                    Name: private
+                cidr: 10.0.0.2/24
+                zone: a
+        route_table:
+            public:
+                name: public
+                subnet:
+                    10.0.0.1/24
+                routes:
+                    - dest: 0.0.0.0/0
+                      gateway_id: igw

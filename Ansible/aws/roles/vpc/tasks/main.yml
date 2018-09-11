@@ -1,0 +1,11 @@
+---
+- name: Create VPC
+  ec2_vpc_net:
+      name: "{{ aws.vpc.name }}"
+      cidr_block: "{{ aws.vpc.cidr_block }}"
+      region: "{{ aws.common.region }}"
+      tags: "{{ aws.vpc.tags }}"
+      tenancy: default
+  register: vpc_net
+
+- debug: var=vpc_net
