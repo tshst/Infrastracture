@@ -6,6 +6,7 @@
       region: "{{ aws.common.region }}"
       tags: "{{ aws.vpc.tags }}"
       tenancy: default
+      state: absent
   register: vpc_net
 
 - debug: var=vpc_net
